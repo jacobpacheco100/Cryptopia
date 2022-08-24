@@ -2,7 +2,7 @@ import React from 'react'
 
 const GlobalStats = () => {
   return (
-    <div className='mt-14 grid sm:grid-cols-2 gap-4'>
+    <div className='mt-14 grid sm:grid-cols-2 gap-7'>
       <div className='flex items-center justify-between p-5 rounded-md border-2 border-gray'>
         <strong>Total Cryptocurrencies</strong>
         <strong className='font-bold text-blue text-2xl'>12,150</strong>

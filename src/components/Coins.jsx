@@ -14,7 +14,14 @@ const Coins = (props) => {
     )
   })
 
-  return <div className='mt-20 grid grid-cols-3 gap-5'>{list}</div>
+  return (
+    <>
+      <h1 className='mt-32 mb-10 font-bold text-lg underline'>
+        Cryptocurrencies
+      </h1>
+      <div className=' grid grid-cols-3 gap-10'>{list}</div>
+    </>
+  )
 }
 
 export default Coins
