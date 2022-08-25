@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import axios from 'axios'
 
+import Footer from './components/Footer'
+
 // pages
 import Home from './pages/Home'
 import Coin from './pages/Coin'
@@ -13,9 +15,9 @@ function App() {
     'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=12&page=1&sparkline=false'
 
   // TEST API
-  axios.get(url).then((res) => {
-    console.log(res.data)
-  })
+  // axios.get(url).then((res) => {
+  //   console.log(res.data)
+  // })
 
   useEffect(() => {
     axios
@@ -37,6 +39,8 @@ function App() {
             <Route path=':coinId' element={<Coin />} />
           </Route>
         </Routes>
+
+        <Footer />
       </Router>
     </>
   )

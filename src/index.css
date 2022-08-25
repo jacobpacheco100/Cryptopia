@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.base-text {
+  @apply leading-7 font-medium text-slateText;
+}
+
+.sub-heading {
+  @apply text-2xl font-bold mb-5;
+}
+
+.stat-box {
+  @apply flex justify-between px-4 py-7 border-b border-gray hover:bg-lightGray;
+}
+
+.label {
+  @apply text-xl font-bold;
+}
+
+.stat {
+  @apply text-xl font-bold text-blue;
+}
+
+.label--other {
+  @apply font-bold;
+}
+
+.stat--other {
+  @apply font-bold text-blue hover:underline;
+}
