@@ -1,16 +1,20 @@
 import React from 'react'
 import CoinItem from './CoinItem'
+import { Link } from 'react-router-dom'
+import Coin from '../pages/Coin'
 
 const Coins = (props) => {
   const list = props.props.map((coin) => {
     return (
-      <CoinItem
-        name={coin.name}
-        icon={coin.image}
-        price={coin.current_price}
-        marketCap={coin.market_cap}
-        dailyChange={coin.price_change_percentage_24h}
-      />
+      <Link to={`/coin/${coin.id}`} element={<Coin />} key={coin.id}>
+        <CoinItem
+          name={coin.name}
+          icon={coin.image}
+          price={coin.current_price}
+          marketCap={coin.market_cap}
+          dailyChange={coin.price_change_percentage_24h}
+        />
+      </Link>
     )
   })
 
