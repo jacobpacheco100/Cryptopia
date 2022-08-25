@@ -26,10 +26,18 @@ const Coin = () => {
   // coin => variables
   const name = coin.name
   const icon = coin.image ? coin.image.large : null
+  const abbr = coin.symbol ? coin.symbol.toUpperCase() : null
 
   const current_price = coin.market_data?.current_price
     ? coin.market_data.current_price.usd.toLocaleString()
     : null
+
+  // ^ coin links
+  const homepage = coin.links.homepage
+  const forum = coin.links.official_forum_url
+  const blockchain = coin.links.blockchain_site[0]
+  const github = coin.links.repos_url.github[0]
+  const reddit = coin.links.subreddit_url
 
   return (
     <div className='container max-w-screen-xl mx-auto px-[20px]'>
@@ -45,9 +53,11 @@ const Coin = () => {
         <div className='flex space-x-8'>
           <img src={`${icon}`} alt='coin-icon' className=' w-24 h-24' />
           <div className='space-y-4'>
-            <h1 className='sub-heading'>Bitcoin ( BTC ) Price</h1>
+            <h1 className='sub-heading'>
+              {name} ( {abbr} ) Price
+            </h1>
             <p className='max-w-[320px] base-text'>
-              Bitcoin live price in US Dollar (USD). View value statistics,
+              {name} live price in US Dollar (USD). View value statistics,
               market cap and supply.
             </p>
           </div>
@@ -59,7 +69,7 @@ const Coin = () => {
             Change: <span className='text-blue'>-0.31%</span>
           </strong>
           <strong>
-            Current Bitcoin Price: <span className='text-blue'>$ 21.5K</span>
+            Current {name} Price: <span className='text-blue'>$ 21.5K</span>
           </strong>
         </aside>
       </header>
@@ -70,7 +80,7 @@ const Coin = () => {
         <section>
           <h1 className='sub-heading'>{name} Value Statistics</h1>
           <p className='base-text'>
-            An overview showing the statistics of Bitcoin, such as the base and
+            An overview showing the statistics of {name}, such as the base and
             quote currency, the rank, and trading volume.
           </p>
 
@@ -153,41 +163,41 @@ const Coin = () => {
 
         {/* Coin Links */}
         <section>
-          <h1 className='sub-heading'>{name} Links</h1>
+          <h1 className='sub-heading'>Related Links</h1>
 
           <ul className='mt-5'>
             <li className='stat-box'>
-              <p className='label--other'>Price to USD</p>
-              <a href={''} className='stat--other'>
-                ${current_price}
+              <p className='label--other'>Homepage</p>
+              <a href={homepage} className='stat--other'>
+                {homepage}
               </a>
             </li>
 
             <li className='stat-box'>
-              <p className='label--other'>Rank</p>
-              <a href={''} className='stat--other'>
-                $ 21.6K
+              <p className='label--other'>Forum</p>
+              <a href={forum} className='stat--other'>
+                {forum}
               </a>
             </li>
 
             <li className='stat-box'>
-              <p className='label--other'>24h Volume</p>
-              <a href={''} className='stat--other'>
-                $ 21.6K
+              <p className='label--other'>Blockchain</p>
+              <a href={blockchain} className='stat--other'>
+                {blockchain}
               </a>
             </li>
 
             <li className='stat-box'>
-              <p className='label--other'>Market Cap</p>
-              <a href={''} className='stat--other'>
-                $ 21.6K
+              <p className='label--other'>Github Repo</p>
+              <a href={github} className='stat--other'>
+                {github}
               </a>
             </li>
 
             <li className='stat-box'>
-              <p className='label--other'>All Time High</p>
-              <a href={''} className='stat--other'>
-                $ 21.6K
+              <p className='label--other'>Reddit</p>
+              <a href={reddit} className='stat--other'>
+                {reddit}
               </a>
             </li>
           </ul>
