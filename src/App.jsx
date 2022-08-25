@@ -4,6 +4,7 @@ import axios from 'axios'
 
 // pages
 import Home from './pages/Home'
+import Coin from './pages/Coin'
 
 function App() {
   const [coins, setCoins] = useState([])
@@ -32,6 +33,9 @@ function App() {
       <Router>
         <Routes>
           <Route path='/' element={<Home api={coins} />} />
+          <Route path='/coin' element={<Coin />}>
+            <Route path=':coinId' element={<Coin />} />
+          </Route>
         </Routes>
       </Router>
     </>

@@ -1,10 +1,10 @@
 import React from 'react'
-import Coin from './Coin'
+import CoinItem from './CoinItem'
 
 const Coins = (props) => {
   const list = props.props.map((coin) => {
     return (
-      <Coin
+      <CoinItem
         name={coin.name}
         icon={coin.image}
         price={coin.current_price}
