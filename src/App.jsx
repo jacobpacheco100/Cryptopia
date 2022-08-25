@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import axios from 'axios'
 
-import Header from './components/Header'
-import GlobalStats from './components/GlobalStats'
-import Coins from './components/Coins'
+// pages
+import Home from './pages/Home'
 
 function App() {
   const [coins, setCoins] = useState([])
 
   const url =
-    'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false'
+    'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=12&page=1&sparkline=false'
 
   // TEST API
   axios.get(url).then((res) => {
@@ -29,11 +29,11 @@ function App() {
 
   return (
     <>
-      <div className='container max-w-screen-xl mx-auto px-[20px]'>
-        <Header />
-        <GlobalStats />
-        <Coins props={coins} />
-      </div>
+      <Router>
+        <Routes>
+          <Route path='/' element={<Home api={coins} />} />
+        </Routes>
+      </Router>
     </>
   )
 }
