@@ -23,10 +23,14 @@ const Coin = () => {
       })
   }, [])
 
+  const unavailable = '---'
+
   // coin => variablesa
   const name = coin.name
   const icon = coin.image ? coin.image.large : null
   const abbr = coin.symbol ? coin.symbol.toUpperCase() : null
+
+  // main stats
 
   const current_price = coin.market_data?.current_price
     ? coin.market_data.current_price.usd.toLocaleString()
@@ -37,28 +41,53 @@ const Coin = () => {
   const yearly_change = coin.market_data
     ?.price_change_percentage_24h_in_currency ? (
     <>
-      {coin.market_data.price_change_percentage_1y_in_currency.usd.toFixed(1)}%
+      {coin.market_data.price_change_percentage_1y_in_currency.usd.toFixed(1) ||
+        `${unavailable}`}
+      %
     </>
+  ) : null
+
+  const total_volume = coin.market_data?.total_volume ? (
+    <>
+      ${coin.market_data.total_volume.usd.toLocaleString() || `${unavailable}`}
+    </>
+  ) : null
+
+  const market_cap = coin.market_data?.market_cap ? (
+    <>${coin.market_data.market_cap.usd.toLocaleString() || `${unavailable}`}</>
+  ) : null
+
+  const all_time_high = coin.market_data?.ath ? (
+    <>${coin.market_data.ath.usd.toLocaleString() || `${unavailable}`}</>
+  ) : null
+
+  // other stats
+
+  const genesis_date = coin.genesis_date ? (
+    <>{coin.genesis_date === null ? `${unavailable}` : coin.genesis_date}</>
   ) : null
 
   const daily_change = coin.market_data
     ?.price_change_percentage_24h_in_currency ? (
     <>
-      {coin.market_data.price_change_percentage_24h_in_currency.usd.toFixed(1)}%
+      {coin.market_data.price_change_percentage_24h_in_currency.usd.toFixed(
+        1
+      ) || `${unavailable}`}
+      %
     </>
   ) : null
 
-  const market_cap = coin.market_data?.market_cap ? (
-    <>${coin.market_data.market_cap.usd.toLocaleString()}</>
+  const circulating_supply = coin.market_data ? (
+    <>{coin.market_data.circulating_supply || `${unavailable}`}</>
   ) : null
 
-  const all_time_high = coin.market_data?.ath ? (
-    <>${coin.market_data.ath.usd.toLocaleString()}</>
+  const max_supply = coin.market_data ? (
+    <>{coin.market_data.max_supply || `${unavailable}`}</>
   ) : null
 
-  // const change_year = coin.market_data.price_change_percentage_24h_in_currency
-  //   ? coin.market_data.price_change_percentage_1y_in_currency.usd.toFixed(1)
-  //   : null
+  const total_supply = coin.market_data ? (
+    <>{coin.market_data.total_supply || `${unavailable}`}</>
+  ) : null
 
   return (
     <div className='container max-w-screen-xl mx-auto px-[20px]'>
@@ -119,8 +148,8 @@ const Coin = () => {
             </li>
 
             <li className='stat-box'>
-              <p className='label'>24h Change</p>
-              <p className='stat'>{daily_change}</p>
+              <p className='label'>Total Volume</p>
+              <p className='stat'>{total_volume}</p>
             </li>
 
             <li className='stat-box'>
@@ -145,28 +174,28 @@ const Coin = () => {
 
           <ul className='mt-5'>
             <li className='stat-box'>
-              <p className='label'>Number Of Markets</p>
-              <p className='stat'>${current_price}</p>
+              <p className='label'>Daily Change</p>
+              <p className='stat'>{daily_change}</p>
             </li>
 
             <li className='stat-box'>
-              <p className='label'>Number Of Exchanges</p>
-              <p className='stat'>$ 21.6K</p>
+              <p className='label'>Started in </p>
+              <p className='stat'>{genesis_date}</p>
             </li>
 
             <li className='stat-box'>
-              <p className='label'>Aprroved Supply</p>
-              <p className='stat'>$ 21.6K</p>
+              <p className='label'>Max Supply</p>
+              <p className='stat'>{max_supply}</p>
             </li>
 
             <li className='stat-box'>
               <p className='label'>Total Supply</p>
-              <p className='stat'>$ 21.6K</p>
+              <p className='stat'>{total_supply}</p>
             </li>
 
             <li className='stat-box'>
               <p className='label'>Circulating Supply</p>
-              <p className='stat'>$ 21.6K</p>
+              <p className='stat'>{circulating_supply}</p>
             </li>
           </ul>
         </section>
