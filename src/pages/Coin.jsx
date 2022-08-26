@@ -23,7 +23,7 @@ const Coin = () => {
       })
   }, [])
 
-  // coin => variables
+  // coin => variablesa
   const name = coin.name
   const icon = coin.image ? coin.image.large : null
   const abbr = coin.symbol ? coin.symbol.toUpperCase() : null
@@ -32,12 +32,9 @@ const Coin = () => {
     ? coin.market_data.current_price.usd.toLocaleString()
     : null
 
-  // ^ coin links
-  const homepage = coin.links.homepage
-  const forum = coin.links.official_forum_url
-  const blockchain = coin.links.blockchain_site[0]
-  const github = coin.links.repos_url.github[0]
-  const reddit = coin.links.subreddit_url
+  // const change_year = coin.market_data.price_change_percentage_24h_in_currency
+  //   ? coin.market_data.price_change_percentage_1y_in_currency.usd.toFixed(1)
+  //   : null
 
   return (
     <div className='container max-w-screen-xl mx-auto px-[20px]'>
@@ -66,10 +63,17 @@ const Coin = () => {
         {/* right */}
         <aside className='flex flex-col text-right self-end'>
           <strong>
-            Change: <span className='text-blue'>-0.31%</span>
+            Change over 1 year:{' '}
+            <span className='text-blue'>
+              {coin.market_data.price_change_percentage_1y_in_currency.usd.toFixed(
+                1
+              )}
+              %
+            </span>
           </strong>
           <strong>
-            Current {name} Price: <span className='text-blue'>$ 21.5K</span>
+            Current {name} Price:{' '}
+            <span className='text-blue'>${current_price}</span>
           </strong>
         </aside>
       </header>
@@ -166,40 +170,53 @@ const Coin = () => {
           <h1 className='sub-heading'>Related Links</h1>
 
           <ul className='mt-5'>
-            <li className='stat-box'>
-              <p className='label--other'>Homepage</p>
-              <a href={homepage} className='stat--other'>
-                {homepage}
-              </a>
-            </li>
+            {coin.links && (
+              <li className='stat-box'>
+                <p className='label--other'>Homepage</p>
+                <a href={coin.links.homepage} className='stat--other'>
+                  {coin.links.homepage}
+                </a>
+              </li>
+            )}
 
-            <li className='stat-box'>
-              <p className='label--other'>Forum</p>
-              <a href={forum} className='stat--other'>
-                {forum}
-              </a>
-            </li>
+            {coin.links && (
+              <li className='stat-box'>
+                <p className='label--other'>Forum</p>
+                <a href={coin.links.official_forum_url} className='stat--other'>
+                  {coin.links.official_forum_url}
+                </a>
+              </li>
+            )}
 
-            <li className='stat-box'>
-              <p className='label--other'>Blockchain</p>
-              <a href={blockchain} className='stat--other'>
-                {blockchain}
-              </a>
-            </li>
+            {coin.links && (
+              <li className='stat-box'>
+                <p className='label--other'>Blockchain</p>
+                <a href={coin.links.blockchain_site[0]} className='stat--other'>
+                  {coin.links.blockchain_site[0]}
+                </a>
+              </li>
+            )}
 
-            <li className='stat-box'>
-              <p className='label--other'>Github Repo</p>
-              <a href={github} className='stat--other'>
-                {github}
-              </a>
-            </li>
+            {coin.links && (
+              <li className='stat-box'>
+                <p className='label--other'>Github Repo</p>
+                <a
+                  href={coin.links.repos_url.github[0]}
+                  className='stat--other'
+                >
+                  {coin.links.repos_url.github[0]}
+                </a>
+              </li>
+            )}
 
-            <li className='stat-box'>
-              <p className='label--other'>Reddit</p>
-              <a href={reddit} className='stat--other'>
-                {reddit}
-              </a>
-            </li>
+            {coin.links && (
+              <li className='stat-box'>
+                <p className='label--other'>Reddit</p>
+                <a href={coin.links.subreddit_url} className='stat--other'>
+                  {coin.links.subreddit_url}
+                </a>
+              </li>
+            )}
           </ul>
         </section>
       </main>

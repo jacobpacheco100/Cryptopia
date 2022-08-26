@@ -23,9 +23,13 @@
 }
 
 .label--other {
-  @apply font-bold;
+  @apply font-bold text-right;
 }
 
 .stat--other {
   @apply font-bold text-blue hover:underline;
+}
+
+.ghost {
+  @apply italic text-slate;
 }
