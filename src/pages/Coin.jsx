@@ -32,6 +32,30 @@ const Coin = () => {
     ? coin.market_data.current_price.usd.toLocaleString()
     : null
 
+  const rank = coin.market_cap_rank
+
+  const yearly_change = coin.market_data
+    ?.price_change_percentage_24h_in_currency ? (
+    <>
+      {coin.market_data.price_change_percentage_1y_in_currency.usd.toFixed(1)}%
+    </>
+  ) : null
+
+  const daily_change = coin.market_data
+    ?.price_change_percentage_24h_in_currency ? (
+    <>
+      {coin.market_data.price_change_percentage_24h_in_currency.usd.toFixed(1)}%
+    </>
+  ) : null
+
+  const market_cap = coin.market_data?.market_cap ? (
+    <>${coin.market_data.market_cap.usd.toLocaleString()}</>
+  ) : null
+
+  const all_time_high = coin.market_data?.ath ? (
+    <>${coin.market_data.ath.usd.toLocaleString()}</>
+  ) : null
+
   // const change_year = coin.market_data.price_change_percentage_24h_in_currency
   //   ? coin.market_data.price_change_percentage_1y_in_currency.usd.toFixed(1)
   //   : null
@@ -64,16 +88,11 @@ const Coin = () => {
         <aside className='flex flex-col text-right self-end'>
           <strong>
             Change over 1 year:{' '}
-            <span className='text-blue'>
-              {coin.market_data.price_change_percentage_1y_in_currency.usd.toFixed(
-                1
-              )}
-              %
-            </span>
+            <span className='text-blue pl-2'>{yearly_change}</span>
           </strong>
           <strong>
             Current {name} Price:{' '}
-            <span className='text-blue'>${current_price}</span>
+            <span className='text-blue pl-2'>${current_price}</span>
           </strong>
         </aside>
       </header>
@@ -90,28 +109,28 @@ const Coin = () => {
 
           <ul className='mt-5'>
             <li className='stat-box'>
+              <p className='label'>Rank</p>
+              <p className='stat'>#{rank}</p>
+            </li>
+
+            <li className='stat-box'>
               <p className='label'>Price to USD</p>
               <p className='stat'>${current_price}</p>
             </li>
 
             <li className='stat-box'>
-              <p className='label'>Rank</p>
-              <p className='stat'>$ 21.6K</p>
-            </li>
-
-            <li className='stat-box'>
-              <p className='label'>24h Volume</p>
-              <p className='stat'>$ 21.6K</p>
-            </li>
-
-            <li className='stat-box'>
-              <p className='label'>Market Cap</p>
-              <p className='stat'>$ 21.6K</p>
+              <p className='label'>24h Change</p>
+              <p className='stat'>{daily_change}</p>
             </li>
 
             <li className='stat-box'>
               <p className='label'>All Time High</p>
-              <p className='stat'>$ 21.6K</p>
+              <p className='stat'>{all_time_high}</p>
+            </li>
+
+            <li className='stat-box'>
+              <p className='label'>Market Cap</p>
+              <p className='stat'>{market_cap}</p>
             </li>
           </ul>
         </section>
