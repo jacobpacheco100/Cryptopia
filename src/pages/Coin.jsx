@@ -120,15 +120,15 @@ const Coin = () => {
       </Link>
 
       {/* Header */}
-      <header className='flex justify-between  mt-20 pb-20 border-b-2 border-gray'>
+      <header className='flex flex-col md:flex-row justify-between  mt-20 pb-20 border-b-2 border-gray'>
         {/* left */}
-        <div className='flex space-x-8'>
+        <div className='flex flex-col md:flex-row space-y-7 md:space-y-0 md:space-x-8'>
           <img src={`${icon}`} alt='coin-icon' className=' w-24 h-24' />
           <div className='space-y-4'>
             <h1 className='sub-heading'>
               {name} ( {abbr} ) Price
             </h1>
-            <p className='max-w-[320px] base-text'>
+            <p className='leading-7 font-medium text-slateText max-w-[320px]'>
               {name} live price in US Dollar (USD). View value statistics,
               market cap and supply.
             </p>
@@ -136,7 +136,7 @@ const Coin = () => {
         </div>
 
         {/* right */}
-        <aside className='flex flex-col text-right self-end'>
+        <aside className='flex flex-col md:text-right self-start md:self-end mt-10 md:mt-0'>
           <strong>
             Change over 1 year:{' '}
             <span className='text-blue pl-2'>{yearly_change}</span>
@@ -153,7 +153,7 @@ const Coin = () => {
         {/* Main stats */}
         <section>
           <h1 className='sub-heading'>{name} Value Statistics</h1>
-          <p className='base-text'>
+          <p className='base-text '>
             An overview showing the statistics of {name}, such as the base and
             quote currency, the rank, and trading volume.
           </p>
@@ -270,7 +270,7 @@ const Coin = () => {
             {coin.links && (
               <li className='stat-box'>
                 <p className='label--other'>Github Repo</p>
-                <a target='_blank' href={github} className='stat--other'>
+                <a target='_blank' href={github} className='stat--other '>
                   {github}
                 </a>
               </li>

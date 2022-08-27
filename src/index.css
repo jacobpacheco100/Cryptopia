@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .base-text {
-  @apply leading-7 font-medium text-slateText;
+  @apply leading-7 font-medium text-slateText max-w-[500px] lg:max-w-none;
 }
 
 .sub-heading {
