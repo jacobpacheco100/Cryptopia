@@ -25,12 +25,12 @@ const Coin = () => {
 
   const unavailable = '---'
 
-  // coin => variablesa
+  // coin => variablesa ===================================================================
   const name = coin.name
   const icon = coin.image ? coin.image.large : null
   const abbr = coin.symbol ? coin.symbol.toUpperCase() : null
 
-  // main stats
+  // main stats ===================================================================
 
   const current_price = coin.market_data?.current_price
     ? coin.market_data.current_price.usd.toLocaleString()
@@ -61,7 +61,7 @@ const Coin = () => {
     <>${coin.market_data.ath.usd.toLocaleString() || `${unavailable}`}</>
   ) : null
 
-  // other stats
+  // other stats ===================================================================
 
   const genesis_date = coin.genesis_date ? (
     <>{coin.genesis_date === null ? `${unavailable}` : coin.genesis_date}</>
@@ -88,6 +88,28 @@ const Coin = () => {
   const total_supply = coin.market_data ? (
     <>{coin.market_data.total_supply || `${unavailable}`}</>
   ) : null
+
+  // external links ===================================================================
+
+  const homepage = coin.links
+    ? coin.links.homepage[0] || `${unavailable}`
+    : null
+
+  const forum = coin.links
+    ? coin.links.official_forum_url[0] || `${unavailable}`
+    : null
+
+  const blockchain = coin.links
+    ? coin.links.blockchain_site[0] || `${unavailable}`
+    : null
+
+  const github = coin.links
+    ? coin.links.repos_url.github[0] || `${unavailable}`
+    : null
+
+  const reddit = coin.links
+    ? coin.links.repos_url.subreddit_url || `${unavailable}`
+    : null
 
   return (
     <div className='container max-w-screen-xl mx-auto px-[20px]'>
@@ -221,8 +243,8 @@ const Coin = () => {
             {coin.links && (
               <li className='stat-box'>
                 <p className='label--other'>Homepage</p>
-                <a href={coin.links.homepage} className='stat--other'>
-                  {coin.links.homepage}
+                <a target='_blank' href={homepage} className='stat--other'>
+                  {homepage}
                 </a>
               </li>
             )}
@@ -230,8 +252,8 @@ const Coin = () => {
             {coin.links && (
               <li className='stat-box'>
                 <p className='label--other'>Forum</p>
-                <a href={coin.links.official_forum_url} className='stat--other'>
-                  {coin.links.official_forum_url}
+                <a target='_blank' href={forum} className='stat--other'>
+                  {forum}
                 </a>
               </li>
             )}
@@ -239,8 +261,8 @@ const Coin = () => {
             {coin.links && (
               <li className='stat-box'>
                 <p className='label--other'>Blockchain</p>
-                <a href={coin.links.blockchain_site[0]} className='stat--other'>
-                  {coin.links.blockchain_site[0]}
+                <a target='_blank' href={blockchain} className='stat--other'>
+                  {blockchain}
                 </a>
               </li>
             )}
@@ -248,11 +270,8 @@ const Coin = () => {
             {coin.links && (
               <li className='stat-box'>
                 <p className='label--other'>Github Repo</p>
-                <a
-                  href={coin.links.repos_url.github[0]}
-                  className='stat--other'
-                >
-                  {coin.links.repos_url.github[0]}
+                <a target='_blank' href={github} className='stat--other'>
+                  {github}
                 </a>
               </li>
             )}
@@ -260,8 +279,8 @@ const Coin = () => {
             {coin.links && (
               <li className='stat-box'>
                 <p className='label--other'>Reddit</p>
-                <a href={coin.links.subreddit_url} className='stat--other'>
-                  {coin.links.subreddit_url}
+                <a target='_blank' href={reddit} className='stat--other'>
+                  {reddit}
                 </a>
               </li>
             )}

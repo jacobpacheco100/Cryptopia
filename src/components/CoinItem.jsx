@@ -1,7 +1,6 @@
 import React from 'react'
 
 const Coin = ({ name, icon, price, marketCap, dailyChange }) => {
-  console.log(icon)
   return (
     <div className='flex flex-col p-5 rounded-md border-2 border-gray hover:border-slate hover:bg-[#fafbfb] hover:cursor-pointer'>
       <div className='flex items-center justify-between border-b border-gray w-full pb-5'>

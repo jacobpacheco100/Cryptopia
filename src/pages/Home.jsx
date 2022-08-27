@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from '../components/Header'
 import GlobalStats from '../components/GlobalStats'
 import Coins from '../components/Coins'
