@@ -23,7 +23,7 @@ const Coins = (props) => {
       <h1 className='mt-32 mb-10 font-bold text-lg underline'>
         Cryptocurrencies
       </h1>
-      <div className=' grid md:grid-cols-2 xl:grid-cols-3 gap-10'>{list}</div>
+      <div className=' grid grid-cols-3 gap-10'>{list}</div>
     </>
   )
 }

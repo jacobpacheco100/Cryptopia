@@ -120,11 +120,11 @@ const Coin = () => {
       </Link>
 
       {/* Header */}
-      <header className='flex flex-col md:flex-row space-y-5 justify-between  mt-20 pb-20 border-b-2 border-gray'>
+      <header className='flex justify-between  mt-20 pb-20 border-b-2 border-gray'>
         {/* left */}
-        <div className='flex flex-col md:flex-row md:space-x-8'>
-          <img src={`${icon}`} alt='coin-icon' className=' w-24 h-24 ' />
-          <div className='mt-8 md:mt-0 space-y-4'>
+        <div className='flex space-x-8'>
+          <img src={`${icon}`} alt='coin-icon' className=' w-24 h-24' />
+          <div className='space-y-4'>
             <h1 className='sub-heading'>
               {name} ( {abbr} ) Price
             </h1>
@@ -136,7 +136,7 @@ const Coin = () => {
         </div>
 
         {/* right */}
-        <aside className='flex flex-col md:text-right md:self-end'>
+        <aside className='flex flex-col text-right self-end'>
           <strong>
             Change over 1 year:{' '}
             <span className='text-blue pl-2'>{yearly_change}</span>
