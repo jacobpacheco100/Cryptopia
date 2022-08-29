@@ -3,12 +3,14 @@ import { FaCoins } from 'react-icons/fa'
 import { ImNewspaper } from 'react-icons/im'
 import { RiCoinsFill } from 'react-icons/ri'
 import { Link } from 'react-router-dom'
+import logo from '../images/logo.svg'
 
 const Header = ({ scroll, search }) => {
   return (
     <>
       <div className=' w-full h-[600px] bg-blue bg-gradient-to-b from-[#59a8ff] to-blue'>
         <div className='container max-w-screen-xl mx-auto px-[20px]'>
+          <img className='h-12 absolute top-10' src={logo} alt='logo' />
           {/* cta */}
           <div className='pt-[210px] flex justify-between items-center'>
             <div className='space-y-8 max-w-[500px]'>
@@ -27,14 +29,11 @@ const Header = ({ scroll, search }) => {
 
               <div className=' w-full flex h-12 mt-32'>
                 <input
-                  className='w-full h-full p-5 bg-[#003482] focus:outline focus:outline-2 focus:outline-lightBlue text-white z-[2] rounded-tl-md rounded-bl-md placeholder:text-[#4e73a6]'
+                  className='w-full h-full p-5 bg-[#003482] focus:outline focus:outline-2 focus:outline-lightBlue text-white z-[2] rounded-md placeholder:text-[#4e73a6]'
                   type='text'
                   onChange={search}
                   placeholder='Enter a crypto Currency ( EG: Bitcoin )'
                 />
-                <button className='h-full w-32  bg-[#002256] text rounded-tr-md rounded-br-md hover:bg-lightBlue hover:text-white ease-in-out duration-[.1s]'>
-                  Submit
-                </button>
               </div>
             </div>
 

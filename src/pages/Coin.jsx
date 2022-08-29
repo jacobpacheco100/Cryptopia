@@ -3,8 +3,10 @@ import { useParams, Link } from 'react-router-dom'
 import axios from 'axios'
 import DOMPurify from 'dompurify'
 
-// icons
-import { FaCoins } from 'react-icons/fa'
+// logo / icons
+import logo from '../images/logo-dark.svg'
+import { ImNewspaper } from 'react-icons/im'
+import { RiCoinsFill } from 'react-icons/ri'
 
 const Coin = () => {
   const params = useParams()
@@ -112,182 +114,203 @@ const Coin = () => {
     : null
 
   return (
-    <div className='container max-w-screen-xl mx-auto px-[20px]'>
+    <>
       {/* navbar : link to home */}
-      <Link to='/' className='flex space-x-3 items-center h-32 max-w-[170px]'>
-        <FaCoins className='text-[32px] text-blue' />
-        <strong className='text-xl'>Cryptopia</strong>
-      </Link>
-
-      {/* Header */}
-      <header className='flex flex-col md:flex-row justify-between  mt-20 pb-20 border-b-2 border-gray'>
-        {/* left */}
-        <div className='flex flex-col md:flex-row space-y-7 md:space-y-0 md:space-x-8'>
-          <img src={`${icon}`} alt='coin-icon' className=' w-24 h-24' />
-          <div className='space-y-4'>
-            <h1 className='sub-heading'>
-              {name} ( {abbr} ) Price
-            </h1>
-            <p className='leading-7 font-medium text-slateText max-w-[320px]'>
-              {name} live price in US Dollar (USD). View value statistics,
-              market cap and supply.
-            </p>
+      <div className='shadow-md bg-white fixed top-0 w-full'>
+        <div className='max-w-screen-xl mx-auto px-[20px] py-2 flex justify-between items-center'>
+          <Link to='/'>
+            <img className='h-10' src={logo} alt='logo' />
+          </Link>
+          {/* navlinks */}
+          <div className='flex space-x-10'>
+            <Link
+              to='/'
+              className='font-medium flex items-center space-x-2 group'
+            >
+              <RiCoinsFill className='text-2xl text-blue' />
+              <p className='group-hover:underline'>Crypto Currencies</p>
+            </Link>
+            <Link
+              to='/'
+              className='font-medium flex items-center space-x-3 group'
+            >
+              <ImNewspaper className='text-xl text-red-600' />
+              <p className='group-hover:underline'>Crypto News</p>
+            </Link>
           </div>
         </div>
+      </div>
+      <div className='container max-w-screen-xl mx-auto px-[20px]'>
+        {/* Header */}
+        <header className='flex flex-col md:flex-row justify-between  mt-20 pb-20 border-b-2 border-gray'>
+          {/* left */}
+          <div className='flex flex-col md:flex-row space-y-7 md:space-y-0 md:space-x-8'>
+            <img src={`${icon}`} alt='coin-icon' className=' w-24 h-24' />
+            <div className='space-y-4'>
+              <h1 className='sub-heading'>
+                {name} ( {abbr} ) Price
+              </h1>
+              <p className='leading-7 font-medium text-slateText max-w-[320px]'>
+                {name} live price in US Dollar (USD). View value statistics,
+                market cap and supply.
+              </p>
+            </div>
+          </div>
 
-        {/* right */}
-        <aside className='flex flex-col md:text-right self-start md:self-end mt-10 md:mt-0'>
-          <strong>
-            Change over 1 year:{' '}
-            <span className='text-blue pl-2'>{yearly_change}</span>
-          </strong>
-          <strong>
-            Current {name} Price:{' '}
-            <span className='text-blue pl-2'>${current_price}</span>
-          </strong>
-        </aside>
-      </header>
+          {/* right */}
+          <aside className='flex flex-col md:text-right self-start md:self-end mt-10 md:mt-0'>
+            <strong>
+              Change over 1 year:{' '}
+              <span className='text-blue pl-2'>{yearly_change}</span>
+            </strong>
+            <strong>
+              Current {name} Price:{' '}
+              <span className='text-blue pl-2'>${current_price}</span>
+            </strong>
+          </aside>
+        </header>
 
-      {/* main */}
-      <main className='grid md:grid-cols-2 gap-10 gap-y-28 mt-20'>
-        {/* Main stats */}
-        <section>
-          <h1 className='sub-heading'>{name} Value Statistics</h1>
-          <p className='base-text '>
-            An overview showing the statistics of {name}, such as the base and
-            quote currency, the rank, and trading volume.
-          </p>
+        {/* main */}
+        <main className='grid md:grid-cols-2 gap-10 gap-y-28 mt-20'>
+          {/* Main stats */}
+          <section>
+            <h1 className='sub-heading'>{name} Value Statistics</h1>
+            <p className='base-text '>
+              An overview showing the statistics of {name}, such as the base and
+              quote currency, the rank, and trading volume.
+            </p>
 
-          <ul className='mt-5'>
-            <li className='stat-box'>
-              <p className='label'>Rank</p>
-              <p className='stat'>#{rank}</p>
-            </li>
-
-            <li className='stat-box'>
-              <p className='label'>Price to USD</p>
-              <p className='stat'>${current_price}</p>
-            </li>
-
-            <li className='stat-box'>
-              <p className='label'>Total Volume</p>
-              <p className='stat'>{total_volume}</p>
-            </li>
-
-            <li className='stat-box'>
-              <p className='label'>All Time High</p>
-              <p className='stat'>{all_time_high}</p>
-            </li>
-
-            <li className='stat-box'>
-              <p className='label'>Market Cap</p>
-              <p className='stat'>{market_cap}</p>
-            </li>
-          </ul>
-        </section>
-
-        {/* Other stats */}
-        <section>
-          <h1 className='sub-heading'>Other Info</h1>
-          <p className='base-text'>
-            Other minor statistics such as number of exchanges and markets, as
-            well as stats on supply ammount and circulation
-          </p>
-
-          <ul className='mt-5'>
-            <li className='stat-box'>
-              <p className='label'>Daily Change</p>
-              <p className='stat'>{daily_change}</p>
-            </li>
-
-            <li className='stat-box'>
-              <p className='label'>Started in </p>
-              <p className='stat'>{genesis_date}</p>
-            </li>
-
-            <li className='stat-box'>
-              <p className='label'>Max Supply</p>
-              <p className='stat'>{max_supply}</p>
-            </li>
-
-            <li className='stat-box'>
-              <p className='label'>Total Supply</p>
-              <p className='stat'>{total_supply}</p>
-            </li>
-
-            <li className='stat-box'>
-              <p className='label'>Circulating Supply</p>
-              <p className='stat'>{circulating_supply}</p>
-            </li>
-          </ul>
-        </section>
-
-        {/* About */}
-        <section>
-          <h1 className='sub-heading'>What is {name}?</h1>
-          <p
-            dangerouslySetInnerHTML={{
-              __html: DOMPurify.sanitize(
-                coin.description ? coin.description.en : ''
-              ),
-            }}
-            className='base-text pr-10'
-          ></p>
-        </section>
-
-        {/* Coin Links */}
-        <section>
-          <h1 className='sub-heading'>Related Links</h1>
-
-          <ul className='mt-5'>
-            {coin.links && (
+            <ul className='mt-5'>
               <li className='stat-box'>
-                <p className='label--other'>Homepage</p>
-                <a target='_blank' href={homepage} className='stat--other'>
-                  {homepage}
-                </a>
+                <p className='label'>Rank</p>
+                <p className='stat'>#{rank}</p>
               </li>
-            )}
 
-            {coin.links && (
               <li className='stat-box'>
-                <p className='label--other'>Forum</p>
-                <a target='_blank' href={forum} className='stat--other'>
-                  {forum}
-                </a>
+                <p className='label'>Price to USD</p>
+                <p className='stat'>${current_price}</p>
               </li>
-            )}
 
-            {coin.links && (
               <li className='stat-box'>
-                <p className='label--other'>Blockchain</p>
-                <a target='_blank' href={blockchain} className='stat--other'>
-                  {blockchain}
-                </a>
+                <p className='label'>Total Volume</p>
+                <p className='stat'>{total_volume}</p>
               </li>
-            )}
 
-            {coin.links && (
               <li className='stat-box'>
-                <p className='label--other'>Github Repo</p>
-                <a target='_blank' href={github} className='stat--other '>
-                  {github}
-                </a>
+                <p className='label'>All Time High</p>
+                <p className='stat'>{all_time_high}</p>
               </li>
-            )}
 
-            {coin.links && (
               <li className='stat-box'>
-                <p className='label--other'>Reddit</p>
-                <a target='_blank' href={reddit} className='stat--other'>
-                  {reddit}
-                </a>
+                <p className='label'>Market Cap</p>
+                <p className='stat'>{market_cap}</p>
               </li>
-            )}
-          </ul>
-        </section>
-      </main>
-    </div>
+            </ul>
+          </section>
+
+          {/* Other stats */}
+          <section>
+            <h1 className='sub-heading'>Other Info</h1>
+            <p className='base-text'>
+              Other minor statistics such as number of exchanges and markets, as
+              well as stats on supply ammount and circulation
+            </p>
+
+            <ul className='mt-5'>
+              <li className='stat-box'>
+                <p className='label'>Daily Change</p>
+                <p className='stat'>{daily_change}</p>
+              </li>
+
+              <li className='stat-box'>
+                <p className='label'>Started in </p>
+                <p className='stat'>{genesis_date}</p>
+              </li>
+
+              <li className='stat-box'>
+                <p className='label'>Max Supply</p>
+                <p className='stat'>{max_supply}</p>
+              </li>
+
+              <li className='stat-box'>
+                <p className='label'>Total Supply</p>
+                <p className='stat'>{total_supply}</p>
+              </li>
+
+              <li className='stat-box'>
+                <p className='label'>Circulating Supply</p>
+                <p className='stat'>{circulating_supply}</p>
+              </li>
+            </ul>
+          </section>
+
+          {/* About */}
+          <section>
+            <h1 className='sub-heading'>What is {name}?</h1>
+            <p
+              dangerouslySetInnerHTML={{
+                __html: DOMPurify.sanitize(
+                  coin.description ? coin.description.en : ''
+                ),
+              }}
+              className='base-text pr-10'
+            ></p>
+          </section>
+
+          {/* Coin Links */}
+          <section>
+            <h1 className='sub-heading'>Related Links</h1>
+
+            <ul className='mt-5'>
+              {coin.links && (
+                <li className='stat-box'>
+                  <p className='label--other'>Homepage</p>
+                  <a target='_blank' href={homepage} className='stat--other'>
+                    {homepage}
+                  </a>
+                </li>
+              )}
+
+              {coin.links && (
+                <li className='stat-box'>
+                  <p className='label--other'>Forum</p>
+                  <a target='_blank' href={forum} className='stat--other'>
+                    {forum}
+                  </a>
+                </li>
+              )}
+
+              {coin.links && (
+                <li className='stat-box'>
+                  <p className='label--other'>Blockchain</p>
+                  <a target='_blank' href={blockchain} className='stat--other'>
+                    {blockchain}
+                  </a>
+                </li>
+              )}
+
+              {coin.links && (
+                <li className='stat-box'>
+                  <p className='label--other'>Github Repo</p>
+                  <a target='_blank' href={github} className='stat--other '>
+                    {github}
+                  </a>
+                </li>
+              )}
+
+              {coin.links && (
+                <li className='stat-box'>
+                  <p className='label--other'>Reddit</p>
+                  <a target='_blank' href={reddit} className='stat--other'>
+                    {reddit}
+                  </a>
+                </li>
+              )}
+            </ul>
+          </section>
+        </main>
+      </div>
+    </>
   )
 }
 
