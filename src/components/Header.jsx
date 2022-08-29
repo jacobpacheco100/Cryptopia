@@ -50,7 +50,12 @@ const Header = ({ scroll, search }) => {
                   </p>
                 </div>
               </button>
-              <button className='xl:max-w-[325px] grow h-20 lg:h-[270px] rounded-lg bg-gradient-to-b from-red-400 to-red-600 border border-red-300 shadow-md hover:scale-110 ease-in-out duration-[.3s]'>
+              <button
+                onClick={() =>
+                  alert('Sorry, this feature is not ready at the moment')
+                }
+                className='xl:max-w-[325px] grow h-20 lg:h-[270px] rounded-lg bg-gradient-to-b from-red-400 to-red-600 border border-red-300 shadow-md hover:scale-110 ease-in-out duration-[.3s]'
+              >
                 <div className='flex lg:flex-col items-center justify-center space-x-2 space-y-3'>
                   <ImNewspaper className='text-4xl lg:text-7xl text-white' />
                   <p className='text-white text-center font-bold text-xl xl:max-w-[130px]'>
