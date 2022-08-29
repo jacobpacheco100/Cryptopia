@@ -9,14 +9,22 @@ const Coin = ({ name, icon, price, marketCap, dailyChange }) => {
       </div>
       <div className='flex flex-col space-y-3 pt-5 text-slateText'>
         <p>
-          Price : <span className='font-bold text-black'>{price}</span>
+          Price :{' '}
+          <span className='font-bold text-black'>
+            ${price.toLocaleString()}
+          </span>
         </p>
         <p>
-          Market Cap : <span className='font-bold text-black'>{marketCap}</span>
+          Market Cap :{' '}
+          <span className='font-bold text-black'>
+            ${marketCap.toLocaleString()}
+          </span>
         </p>
         <p>
           Daily Change :{' '}
-          <span className='font-bold text-black'>{dailyChange}</span>
+          <span className='font-bold text-black'>
+            {dailyChange.toLocaleString()}%
+          </span>
         </p>
       </div>
     </div>

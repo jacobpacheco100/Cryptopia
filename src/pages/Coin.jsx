@@ -130,13 +130,15 @@ const Coin = () => {
               <RiCoinsFill className='text-2xl text-blue' />
               <p className='group-hover:underline'> Currencies</p>
             </Link>
-            <Link
-              to='/'
+            <button
+              onClick={() =>
+                alert('Sorry, this feature is not ready at the moment')
+              }
               className='font-medium flex items-center space-x-3 group'
             >
               <ImNewspaper className='text-xl text-red-600' />
               <p className='group-hover:underline'> News</p>
-            </Link>
+            </button>
           </div>
         </div>
       </div>
