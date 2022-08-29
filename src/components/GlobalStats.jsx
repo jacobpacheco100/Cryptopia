@@ -40,47 +40,52 @@ const GlobalStats = () => {
   // market_cap_change_percentage_24h_usd
 
   return (
-    <div className='mt-14 grid sm:grid-cols-2 gap-7'>
-      <div className='flex items-center justify-between p-5 rounded-md border-2 border-gray  hover:bg-[#fafbfb] hover:cursor-default'>
-        <strong>Total Cryptocurrencies</strong>
-        <strong className='font-bold text-blue text-2xl'>
-          {total_currencies}
-        </strong>
-      </div>
+    <>
+      <h1 className='mt-32 mb-10 font-bold text-lg underline'>
+        Crypto Market Stats
+      </h1>
+      <div className='mt-14 grid sm:grid-cols-2 gap-7'>
+        <div className='flex items-center justify-between p-5 rounded-md border shadow-md border-gray  hover:bg-[#fafbfb] hover:cursor-default'>
+          <strong>Total Cryptocurrencies</strong>
+          <strong className='font-bold text-blue text-2xl'>
+            {total_currencies}
+          </strong>
+        </div>
 
-      <div className='flex items-center justify-between p-5 rounded-md border-2 border-gray  hover:bg-[#fafbfb] hover:cursor-default'>
-        <strong>Total Market Cap</strong>
-        <strong className='font-bold text-blue text-2xl'>
-          {total_market_cap}
-        </strong>
-      </div>
+        <div className='flex items-center justify-between p-5 rounded-md border shadow-md border-gray  hover:bg-[#fafbfb] hover:cursor-default'>
+          <strong>Total Market Cap</strong>
+          <strong className='font-bold text-blue text-2xl'>
+            {total_market_cap}
+          </strong>
+        </div>
 
-      <div className='flex items-center justify-between p-5 rounded-md border-2 border-gray  hover:bg-[#fafbfb] hover:cursor-default'>
-        <strong>Total Markets</strong>
-        <strong className='font-bold text-blue text-2xl'>
-          {total_markets}
-        </strong>
-      </div>
+        <div className='flex items-center justify-between p-5 rounded-md border shadow-md border-gray  hover:bg-[#fafbfb] hover:cursor-default'>
+          <strong>Total Markets</strong>
+          <strong className='font-bold text-blue text-2xl'>
+            {total_markets}
+          </strong>
+        </div>
 
-      <div className='flex items-center justify-between p-5 rounded-md border-2 border-gray  hover:bg-[#fafbfb] hover:cursor-default'>
-        <strong>Total 24th Volume</strong>
-        <strong className='font-bold text-blue text-2xl'>
-          {total_daily_volume}
-        </strong>
-      </div>
+        <div className='flex items-center justify-between p-5 rounded-md border shadow-md border-gray  hover:bg-[#fafbfb] hover:cursor-default'>
+          <strong>Total 24th Volume</strong>
+          <strong className='font-bold text-blue text-2xl'>
+            {total_daily_volume}
+          </strong>
+        </div>
 
-      <div className='flex items-center justify-between p-5 rounded-md border-2 border-gray  hover:bg-[#fafbfb] hover:cursor-default'>
-        <strong>Top Currency</strong>
-        <strong className='font-bold text-blue text-2xl'>Bitcoin</strong>
-      </div>
+        <div className='flex items-center justify-between p-5 rounded-md border shadow-md border-gray  hover:bg-[#fafbfb] hover:cursor-default'>
+          <strong>Top Currency</strong>
+          <strong className='font-bold text-blue text-2xl'>Bitcoin</strong>
+        </div>
 
-      <div className='flex items-center justify-between p-5 rounded-md border-2 border-gray  hover:bg-[#fafbfb] hover:cursor-default'>
-        <strong>24h Market Change</strong>
-        <strong className='font-bold text-blue text-2xl'>
-          {market_daily_change}
-        </strong>
+        <div className='flex items-center justify-between p-5 rounded-md border shadow-md border-gray  hover:bg-[#fafbfb] hover:cursor-default'>
+          <strong>24h Market Change</strong>
+          <strong className='font-bold text-blue text-2xl'>
+            {market_daily_change}
+          </strong>
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 

@@ -4,9 +4,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        blue: '#00A3FF',
+        blue: '#016ADE',
+        lightBlue: '#2eb6ff',
+        darkBlue: '#003482',
         lightGray: '#f8fafc',
-        gray: '#C5CFD4',
+        gray: '#d5dee3',
         slate: '#94A3AB',
         slateText: '#6C777D',
       },

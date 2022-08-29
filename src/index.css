@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.text {
+  @apply leading-9 font-medium text-[#D2E5F0];
+}
+
 .base-text {
   @apply leading-7 font-medium text-slateText max-w-[500px] lg:max-w-none;
 }
