@@ -8,11 +8,11 @@ import logo from '../images/logo.svg'
 const Header = ({ scroll, search }) => {
   return (
     <>
-      <div className=' w-full pb-14 bg-blue bg-gradient-to-b from-[#59a8ff] to-blue'>
+      <div className=' w-full  pb-20 bg-blue bg-gradient-to-b from-[#59a8ff] to-blue'>
         <div className='container max-w-screen-xl mx-auto px-[20px]'>
           <img className='h-12 absolute top-10' src={logo} alt='logo' />
           {/* cta */}
-          <div className='pt-[210px] flex flex-col xl:flex-row justify-between items-center'>
+          <div className='pt-[150px] flex flex-col xl:flex-row justify-between items-center'>
             <div className='space-y-8 max-w-[500px]'>
               <p className=' leading-10 font-medium text-white text-3xl text-center md:text-left'>
                 Get the latest stats on every major cryptocurrency accross the
@@ -38,22 +38,22 @@ const Header = ({ scroll, search }) => {
             </div>
 
             {/* buttons */}
-            <div className='w-full flex flex-col lg:flex-row lg:space-x-5 space-y-5 lg:space-y-0 max-w-[500px] lg:max-w-none justify-end mt-10 xl:mt-0'>
+            <div className='w-full flex flex-col lg:flex-row lg:space-x-5 space-y-5 lg:space-y-0 max-w-[500px] lg:max-w-[600px] justify-end mt-10 xl:mt-0'>
               <button
                 onClick={scroll}
-                className='xl:max-w-[325px] grow h-20 lg:h-[320px] rounded-lg bg-gradient-to-b from-lightBlue to-blue border border-lightBlue shadow-md hover:scale-110 ease-in-out duration-[.3s]'
+                className='xl:max-w-[325px] grow h-20 lg:h-[270px] rounded-lg bg-gradient-to-b from-lightBlue to-blue border border-lightBlue shadow-md hover:scale-110 ease-in-out duration-[.3s]'
               >
                 <div className='grow flex lg:flex-col items-center justify-center space-x-2 space-y-3'>
-                  <RiCoinsFill className='text-4xl lg:text-9xl text-white' />
-                  <p className='text-white text-center font-bold text-2xl xl:max-w-[200px]'>
-                    Crypto Currencies
+                  <RiCoinsFill className='text-4xl lg:text-7xl text-white' />
+                  <p className='text-white text-center font-bold text-xl xl:max-w-[130px]'>
+                    Currencies
                   </p>
                 </div>
               </button>
-              <button className='xl:max-w-[325px] grow h-20 lg:h-[320px] rounded-lg bg-gradient-to-b from-red-400 to-red-600 border border-red-300 shadow-md hover:scale-110 ease-in-out duration-[.3s]'>
+              <button className='xl:max-w-[325px] grow h-20 lg:h-[270px] rounded-lg bg-gradient-to-b from-red-400 to-red-600 border border-red-300 shadow-md hover:scale-110 ease-in-out duration-[.3s]'>
                 <div className='flex lg:flex-col items-center justify-center space-x-2 space-y-3'>
-                  <ImNewspaper className='text-4xl lg:text-9xl text-white' />
-                  <p className='text-white text-center font-bold text-2xl xl:max-w-[130px]'>
+                  <ImNewspaper className='text-4xl lg:text-7xl text-white' />
+                  <p className='text-white text-center font-bold text-xl xl:max-w-[130px]'>
                     Crypto News
                   </p>
                 </div>
