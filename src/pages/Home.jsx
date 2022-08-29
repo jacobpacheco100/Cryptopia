@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import Header from '../components/Header'
 import GlobalStats from '../components/GlobalStats'
 import Coins from '../components/Coins'
@@ -22,9 +22,9 @@ const Home = ({ api }) => {
         search={(e) => setSearchTerm(e.target.value)}
       />
       <div className='container max-w-screen-xl mx-auto px-[20px]'>
-        <GlobalStats />
+        {searchTerm === '' ? <GlobalStats /> : ''}
         <div ref={currencies}>
-          <Coins props={api} />
+          <Coins api={api} filter={searchTerm} />
         </div>
       </div>
     </>
