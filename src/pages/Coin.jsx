@@ -7,6 +7,7 @@ import DOMPurify from 'dompurify'
 import logo from '../images/logo-dark.svg'
 import { ImNewspaper } from 'react-icons/im'
 import { RiCoinsFill } from 'react-icons/ri'
+import { BiLinkExternal } from 'react-icons/bi'
 
 const Coin = () => {
   const params = useParams()
@@ -119,7 +120,7 @@ const Coin = () => {
       <div className='shadow-md bg-white fixed top-0 w-full'>
         <div className='max-w-screen-xl mx-auto px-[20px] py-2 flex justify-between items-center'>
           <Link to='/'>
-            <img className='h-10' src={logo} alt='logo' />
+            <img className='h-8' src={logo} alt='logo' />
           </Link>
           {/* navlinks */}
           <div className='flex space-x-10'>
@@ -144,7 +145,7 @@ const Coin = () => {
       </div>
       <div className='container max-w-screen-xl mx-auto px-[20px]'>
         {/* Header */}
-        <header className='flex flex-col md:flex-row justify-between  mt-20 pb-20 border-b-2 border-gray'>
+        <header className='flex flex-col md:flex-row justify-between  mt-40 pb-20 border-b-2 border-gray'>
           {/* left */}
           <div className='flex flex-col md:flex-row space-y-7 md:space-y-0 md:space-x-8'>
             <img src={`${icon}`} alt='coin-icon' className=' w-24 h-24' />
@@ -263,12 +264,12 @@ const Coin = () => {
           <section>
             <h1 className='sub-heading'>Related Links</h1>
 
-            <ul className='mt-5'>
+            <ul className='mt-5 overflow-x-hidden'>
               {coin.links && (
                 <li className='stat-box'>
                   <p className='label--other'>Homepage</p>
                   <a target='_blank' href={homepage} className='stat--other'>
-                    {homepage}
+                    <BiLinkExternal className='text-2xl' />
                   </a>
                 </li>
               )}
@@ -277,7 +278,7 @@ const Coin = () => {
                 <li className='stat-box'>
                   <p className='label--other'>Forum</p>
                   <a target='_blank' href={forum} className='stat--other'>
-                    {forum}
+                    <BiLinkExternal className='text-2xl' />
                   </a>
                 </li>
               )}
@@ -286,7 +287,7 @@ const Coin = () => {
                 <li className='stat-box'>
                   <p className='label--other'>Blockchain</p>
                   <a target='_blank' href={blockchain} className='stat--other'>
-                    {blockchain}
+                    <BiLinkExternal className='text-2xl' />
                   </a>
                 </li>
               )}
@@ -295,7 +296,7 @@ const Coin = () => {
                 <li className='stat-box'>
                   <p className='label--other'>Github Repo</p>
                   <a target='_blank' href={github} className='stat--other '>
-                    {github}
+                    <BiLinkExternal className='text-2xl' />
                   </a>
                 </li>
               )}
@@ -304,7 +305,7 @@ const Coin = () => {
                 <li className='stat-box'>
                   <p className='label--other'>Reddit</p>
                   <a target='_blank' href={reddit} className='stat--other'>
-                    {reddit}
+                    <BiLinkExternal className='text-2xl' />
                   </a>
                 </li>
               )}

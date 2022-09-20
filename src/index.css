@@ -19,19 +19,19 @@
 }
 
 .label {
-  @apply text-xl font-bold;
+  @apply text-base md:text-xl  font-bold;
 }
 
 .stat {
-  @apply text-xl font-bold text-blue;
+  @apply text-base md:text-xl font-bold text-blue;
 }
 
 .label--other {
-  @apply font-bold text-right;
+  @apply text-base md:text-xl font-bold text-left;
 }
 
 .stat--other {
-  @apply font-bold text-blue hover:underline;
+  @apply text-base md:text-xl font-bold text-blue hover:underline max-w-[50%];
 }
 
 .ghost {

@@ -46,43 +46,33 @@ const GlobalStats = () => {
       </h1>
       <div className='mt-14 grid sm:grid-cols-2 gap-7'>
         <div className='flex items-center justify-between p-5 rounded-md border shadow-md border-gray  hover:bg-[#fafbfb] hover:cursor-default'>
-          <strong>Total Cryptocurrencies</strong>
-          <strong className='font-bold text-blue text-2xl'>
-            {total_currencies}
-          </strong>
+          <strong className='label'>Total Cryptocurrencies</strong>
+          <strong className='stat'>{total_currencies}</strong>
         </div>
 
         <div className='flex items-center justify-between p-5 rounded-md border shadow-md border-gray  hover:bg-[#fafbfb] hover:cursor-default'>
-          <strong>Total Market Cap</strong>
-          <strong className='font-bold text-blue text-2xl'>
-            {total_market_cap}
-          </strong>
+          <strong className='label'>Total Market Cap</strong>
+          <strong className='stat'>{total_market_cap}</strong>
         </div>
 
         <div className='flex items-center justify-between p-5 rounded-md border shadow-md border-gray  hover:bg-[#fafbfb] hover:cursor-default'>
-          <strong>Total Markets</strong>
-          <strong className='font-bold text-blue text-2xl'>
-            {total_markets}
-          </strong>
+          <strong className='label'>Total Markets</strong>
+          <strong className=' stat stat'>{total_markets}</strong>
         </div>
 
         <div className='flex items-center justify-between p-5 rounded-md border shadow-md border-gray  hover:bg-[#fafbfb] hover:cursor-default'>
-          <strong>Total 24th Volume</strong>
-          <strong className='font-bold text-blue text-2xl'>
-            {total_daily_volume}
-          </strong>
+          <strong className='label'>Total 24th Volume</strong>
+          <strong className='stat'>{total_daily_volume}</strong>
         </div>
 
         <div className='flex items-center justify-between p-5 rounded-md border shadow-md border-gray  hover:bg-[#fafbfb] hover:cursor-default'>
-          <strong>Top Currency</strong>
-          <strong className='font-bold text-blue text-2xl'>Bitcoin</strong>
+          <strong className='label'>Top Currency</strong>
+          <strong className='stat'>Bitcoin</strong>
         </div>
 
         <div className='flex items-center justify-between p-5 rounded-md border shadow-md border-gray  hover:bg-[#fafbfb] hover:cursor-default'>
-          <strong>24h Market Change</strong>
-          <strong className='font-bold text-blue text-2xl'>
-            {market_daily_change}
-          </strong>
+          <strong className='label'>24h Market Change</strong>
+          <strong className='stat'>{market_daily_change}</strong>
         </div>
       </div>
     </>
