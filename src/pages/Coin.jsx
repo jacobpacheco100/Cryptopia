@@ -4,6 +4,7 @@ import axios from 'axios'
 import DOMPurify from 'dompurify'
 
 // logo / icons
+import { BiArrowBack } from 'react-icons/bi'
 import logo from '../images/logo-dark.svg'
 import { ImNewspaper } from 'react-icons/im'
 import { RiCoinsFill } from 'react-icons/ri'
@@ -117,30 +118,13 @@ const Coin = () => {
   return (
     <>
       {/* navbar : link to home */}
-      <div className='shadow-md bg-white fixed top-0 w-full'>
+      <div className='sticky top-6'>
         <div className='max-w-screen-xl mx-auto px-[20px] py-2 flex justify-between items-center'>
           <Link to='/'>
-            <img className='h-8' src={logo} alt='logo' />
+            <div className='bg-white p-4 rounded-full shadow-md hover:bg-lightGray'>
+              <BiArrowBack className='text-3xl' />
+            </div>
           </Link>
-          {/* navlinks */}
-          <div className='flex space-x-10'>
-            <Link
-              to='/'
-              className='font-medium flex items-center space-x-2 group'
-            >
-              <RiCoinsFill className='text-2xl text-blue' />
-              <p className='group-hover:underline'> Currencies</p>
-            </Link>
-            <button
-              onClick={() =>
-                alert('Sorry, this feature is not ready at the moment')
-              }
-              className='font-medium flex items-center space-x-3 group'
-            >
-              <ImNewspaper className='text-xl text-red-600' />
-              <p className='group-hover:underline'> News</p>
-            </button>
-          </div>
         </div>
       </div>
       <div className='container max-w-screen-xl mx-auto px-[20px]'>
@@ -174,7 +158,7 @@ const Coin = () => {
         </header>
 
         {/* main */}
-        <main className='grid md:grid-cols-2 gap-10 gap-y-28 mt-20'>
+        <main className='grid md:grid-cols-2 gap-10 gap-y-28 mt-20  pb-40'>
           {/* Main stats */}
           <section>
             <h1 className='sub-heading'>{name} Value Statistics</h1>

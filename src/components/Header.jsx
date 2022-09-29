@@ -8,64 +8,38 @@ import logo from '../images/logo.svg'
 const Header = ({ scroll, search }) => {
   return (
     <>
-      <div className=' w-full  pb-20 bg-blue bg-gradient-to-b from-[#59a8ff] to-blue'>
+      <div className=' w-full  pb-20'>
         <div className='container max-w-screen-xl mx-auto px-[20px]'>
-          <img className='h-12 absolute top-10' src={logo} alt='logo' />
           {/* cta */}
-          <div className='pt-[150px] flex flex-col xl:flex-row justify-between items-center'>
-            <div className='space-y-8 max-w-[500px]'>
-              <p className=' leading-10 font-medium text-white text-3xl text-center md:text-left'>
-                Get the latest stats on every major cryptocurrency accross the
-                globe with the help of the{' '}
-                <a
-                  href='https://www.coingecko.com/'
-                  className='font-bold text-[#9DDCFF] hover:underline'
-                >
-                  CoinGecko API
-                </a>
-              </p>
+          <div className='mt-[150px] mx-auto flex flex-col justify-between items-center'>
+            <div className='space-y-12'>
+              <div className='space-y-8'>
+                <h1 className=' text-3xl lg:text-5xl text-center font-bold text-blue'>
+                  Find stats on cryptocurrencies, with Cryptopia.
+                </h1>
+                <p className='max-w-[400px] text-slateText mx-auto leading-7 font-medium text-h4 text-sm text-center '>
+                  Get the latest stats on every major cryptocurrency accross the
+                  globe with the a of the{' '}
+                  <a
+                    href='https://www.coingecko.com/'
+                    className='font-bold text-lightBlue hover:underline'
+                  >
+                    CoinGecko API
+                  </a>
+                </p>
+              </div>
 
               {/* searchbar */}
-
-              <div className=' w-full flex h-12 mt-32'>
+              <div className='w-full flex h-8 mx-auto w-80% max-w-[700px] mt-10'>
                 <input
-                  className='w-full h-full p-5 bg-[#003482] focus:outline focus:outline-2 focus:outline-lightBlue text-white z-[2] rounded-md placeholder:text-[#4e73a6]'
+                  className='w-full h-full p-5 outline outline-slate focus:outline focus:outline-2 focus:outline-lightBlue  text-slate z-[2] rounded-md placeholder:text-slate'
                   type='text'
                   onChange={search}
                   placeholder='Enter a crypto Currency ( EG: Bitcoin )'
                 />
               </div>
             </div>
-
-            {/* buttons */}
-            <div className='w-full flex flex-col lg:flex-row lg:space-x-5 space-y-5 lg:space-y-0 max-w-[500px] lg:max-w-[600px] justify-end mt-10 xl:mt-0'>
-              <button
-                onClick={scroll}
-                className='xl:max-w-[325px] grow h-20 lg:h-[270px] rounded-lg bg-gradient-to-b from-lightBlue to-blue border border-lightBlue shadow-md hover:scale-110 ease-in-out duration-[.3s]'
-              >
-                <div className='grow flex lg:flex-col items-center justify-center space-x-2 space-y-3'>
-                  <RiCoinsFill className='text-4xl lg:text-7xl text-white' />
-                  <p className='text-white text-center font-bold text-xl xl:max-w-[130px]'>
-                    Currencies
-                  </p>
-                </div>
-              </button>
-              <button
-                onClick={() =>
-                  alert('Sorry, this feature is not ready at the moment')
-                }
-                className='xl:max-w-[325px] grow h-20 lg:h-[270px] rounded-lg bg-gradient-to-b from-red-400 to-red-600 border border-red-300 shadow-md hover:scale-110 ease-in-out duration-[.3s]'
-              >
-                <div className='flex lg:flex-col items-center justify-center space-x-2 space-y-3'>
-                  <ImNewspaper className='text-4xl lg:text-7xl text-white' />
-                  <p className='text-white text-center font-bold text-xl xl:max-w-[130px]'>
-                    Crypto News
-                  </p>
-                </div>
-              </button>
-            </div>
           </div>
-          {/* search bar */}
         </div>
       </div>
     </>

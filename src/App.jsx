@@ -39,8 +39,6 @@ function App() {
             <Route path=':coinId' element={<Coin />} />
           </Route>
         </Routes>
-
-        <Footer />
       </Router>
     </>
   )
